@@ -12,14 +12,14 @@ while True:
     cliente.connect((HOST, PORT))
 
     # Gera um número inteiro aleatório com até 30 casas
-    numero = random.randint(1**9, 10**30)
+    numero = random.randint(1, 9.99*(10**29))
 
     # Envia o número para o servidor
     cliente.send(str(numero).encode())
 
     # Recebe e imprime a mensagem do servidor
     mensagem = cliente.recv(1024).decode()
-    print('Valor recebido do servidor:', str(numero) + mensagem + 'FIM')
+    print('Valor recebido do servidor:', mensagem + ' FIM')
 
     # Fecha a conexão com o servidor
     cliente.close()
